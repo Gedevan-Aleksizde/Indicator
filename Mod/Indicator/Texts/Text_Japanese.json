@@ -1,0 +1,45 @@
+{
+  "$type": "ThunderRoad.TextData, ThunderRoad",
+  "id": "Japanese",
+  "sensitiveContent": "None",
+  "sensitiveFilterBehaviour": "Discard",
+  "version": 1,
+  "textGroups": [
+    {
+    "$type": "ThunderRoad.TextData+TextGroup, ThunderRoad",
+      "id": "ModOpts",
+      "texts": [
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "apply_any",
+          "text": "全員に適用"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "apply_any_desc",
+          "text": "敵の武器にもインジケータを表示します。"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "length",
+          "text": "長さ"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "offset_x",
+          "text": "X軸のオフセット"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "offset_y",
+          "text": "Y軸のオフセット"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "offset_z",
+          "text": "Z軸のオフセット"
+        }
+      ]
+    }
+  ]
+}

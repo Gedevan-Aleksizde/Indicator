@@ -1,8 +1,8 @@
 {
-  "Name": "Indicator",
-  "Description": "Unknown",
+  "Name": "Edge Simulation Indicator (U12)",
+  "Description": "Check if the edge angle is correct",
   "Author": "SKatagiri",
-  "ModVersion": "0.1",
+  "ModVersion": "1.0.0",
   "GameVersion": "0.12.0.0",
   "Thumbnail": ""
 }

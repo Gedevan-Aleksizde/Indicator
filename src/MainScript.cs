@@ -39,7 +39,6 @@ namespace Indicator
         [ModOptionTooltip("A", "ModOpts.apply_any_desc")]
         public bool OptApplyAny { get; private set; }
         [ModOption(order = 1, name = "length", nameLocalizationId = "ModOpts.length", defaultValueIndex = 101, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
-        [ModOptionTooltip("A", "ModOpts.length_desc")]
         public static float OptLength { get; private set; }
 
         private static ModOptionFloat[] OptValueScale()
@@ -51,14 +50,11 @@ namespace Indicator
             }
             return values;
         }
-        [ModOption(order = 2, name = "offset_x", defaultValueIndex = 0, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
-        [ModOptionTooltip("A", "ModOpts.offset_x_desc")]
+        [ModOption(order = 2, name = "offset_x", nameLocalizationId = "ModOpts.offset_x", defaultValueIndex = 0, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
         public static float OptX { get; private set; }
-        [ModOption(order = 3, name = "offset_y", defaultValueIndex = 0, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
-        [ModOptionTooltip("A", "ModOpts.offset_y_desc")]
+        [ModOption(order = 3, name = "offset_y", nameLocalizationId = "ModOpts.offset_y", defaultValueIndex = 0, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
         public static float OptY { get; private set; }
-        [ModOption(order = 1, name = "offset_z", defaultValueIndex = 0, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
-        [ModOptionTooltip("A", "ModOpts.offset_z_desc")]
+        [ModOption(order = 4, name = "offset_z", nameLocalizationId = "ModOpts.offset_z", defaultValueIndex = 0, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
         public static float OptZ { get; private set; }
         }
 }

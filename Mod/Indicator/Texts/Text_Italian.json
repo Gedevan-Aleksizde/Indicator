@@ -1,0 +1,45 @@
+{
+  "$type": "ThunderRoad.TextData, ThunderRoad",
+  "id": "Italian",
+  "sensitiveContent": "None",
+  "sensitiveFilterBehaviour": "Discard",
+  "version": 1,
+  "textGroups": [
+    {
+      "$type": "ThunderRoad.TextData+TextGroup, ThunderRoad",
+      "id": "ModOpts",
+      "texts": [
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "apply_any",
+          "text": "Apply Anyone"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "apply_any_desc",
+          "text": "Show the indicators on the enemy's weapons"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "length",
+          "text": "Length"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "offset_x",
+          "text": "X-axis Offset"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "offset_y",
+          "text": "Y-axis Offset"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "offset_z",
+          "text": "Z-axis Offset"
+        }
+      ]
+    }
+  ]
+}
