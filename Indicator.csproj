@@ -610,7 +610,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="src\Class1.cs" />
     <Compile Include="src\MainScript.cs" />
     <Compile Include="src\Extensions\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
