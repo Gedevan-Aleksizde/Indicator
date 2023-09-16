@@ -132,7 +132,6 @@ namespace Indicator
                 },
                 "LoadTrail"
                 );
-
         }
         private void ChangeColorOnLoop(EdgeDatum data)
         {

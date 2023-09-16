@@ -35,10 +35,20 @@ namespace Indicator
                 creature.gameObject.AddComponent<Indicator>().Setup(creature);
             }
         }
-        [ModOption(order = 0, name = "apply_any", nameLocalizationId = "ModOpts.apply_any", defaultValueIndex = 0)]
+        [ModOption(order = 0, name = "activation", nameLocalizationId = "ModOpts.activation", defaultValueIndex = 1)]
+        [ModOptionTooltip("A", "ModOpts.activation_desc")]
+        public static void OptActivation(bool value)
+        {
+            foreach(Item item in Item.allActive)
+            {
+                Indicator indicator = item.GetComponentInChildren<Indicator>();
+                if (indicator != null) indicator.enabled = value;
+            }
+        }
+        [ModOption(order = 1, name = "apply_any", nameLocalizationId = "ModOpts.apply_any", defaultValueIndex = 0)]
         [ModOptionTooltip("A", "ModOpts.apply_any_desc")]
-        public bool OptApplyAny { get; private set; }
-        [ModOption(order = 1, name = "length", nameLocalizationId = "ModOpts.length", defaultValueIndex = 101, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
+        public static bool OptApplyAny { get; private set; }
+        [ModOption(order = 2, name = "length", nameLocalizationId = "ModOpts.length", defaultValueIndex = 101, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
         public static float OptLength { get; private set; }
 
         private static ModOptionFloat[] OptValueScale()
@@ -50,11 +60,11 @@ namespace Indicator
             }
             return values;
         }
-        [ModOption(order = 2, name = "offset_x", nameLocalizationId = "ModOpts.offset_x", defaultValueIndex = 0, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
+        [ModOption(order = 3, name = "offset_x", nameLocalizationId = "ModOpts.offset_x", defaultValueIndex = 0, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
         public static float OptX { get; private set; }
-        [ModOption(order = 3, name = "offset_y", nameLocalizationId = "ModOpts.offset_y", defaultValueIndex = 0, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
+        [ModOption(order = 4, name = "offset_y", nameLocalizationId = "ModOpts.offset_y", defaultValueIndex = 0, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
         public static float OptY { get; private set; }
-        [ModOption(order = 4, name = "offset_z", nameLocalizationId = "ModOpts.offset_z", defaultValueIndex = 0, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
+        [ModOption(order = 5, name = "offset_z", nameLocalizationId = "ModOpts.offset_z", defaultValueIndex = 0, valueSourceName = nameof(OptValueScale), interactionType = ModOption.InteractionType.Slider)]
         public static float OptZ { get; private set; }
         }
 }

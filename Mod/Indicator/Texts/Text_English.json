@@ -11,6 +11,16 @@
       "texts": [
         {
           "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "activation",
+          "text": "Activation"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "activation_desc",
+          "text": "Toggle the mod ON/OFF instantly"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
           "id": "apply_any",
           "text": "Apply Anyone"
         },
