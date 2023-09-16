@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ThunderRoad;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -64,6 +61,33 @@ namespace Indicator.Extensions
             {
                 return true;
             }
+        }
+    }
+    public static class DamagerExtensions
+    {
+        public static bool CheckAnglesFixed(this Damager damager, Vector3 vector, float maxAngle)
+        {
+            Vector3 vector2 = Vector3.ProjectOnPlane(vector.normalized, damager.transform.right);
+            Vector3 vector3 = Vector3.ProjectOnPlane(vector.normalized, damager.transform.up);
+            float num = Vector3.Angle(vector3.normalized, damager.transform.forward);
+            float num2 = Vector3.Angle(vector2.normalized, damager.transform.forward);
+            DamagerData.Tier tier = damager.data.GetTier(damager.collisionHandler);
+            if (num < maxAngle && num2 < tier.maxVerticalAngle)
+            {
+                return true;
+            }
+
+            if (damager.direction == Damager.Direction.ForwardAndBackward)
+            {
+                float num3 = Vector3.Angle(vector3.normalized, -damager.transform.forward);
+                num2 = Vector3.Angle(vector2.normalized, -damager.transform.forward);
+                if (num3 < maxAngle && num2 < tier.maxVerticalAngle)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using ThunderRoad;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using Indicator.Extensions;
 
 namespace Indicator
 {
@@ -67,12 +69,12 @@ namespace Indicator
                 if (slashDamagers.Count() > 0)
                 {
                     Damager slashDamager = slashDamagers.OrderBy(d => d.penetrationLength == 0 ).First();
-                    Debug.Log($"slash damager detected in {handle.item.data.displayName} ({slashDamager.name}) (len={slashDamagers.Count()})");
+                    if(IndicatorManager.OptVerboseLog) Debug.Log($"slash damager detected in {handle.item.data.displayName} ({slashDamager.name}) (len={slashDamagers.Count()})");
                     this.AddTrailRenderer(handle.item, slashDamager, side);
                 }
                 else
                 {
-                    Debug.Log($"slash damager not detected ({handle.item.name})");
+                    if(IndicatorManager.OptVerboseLog) Debug.Log($"slash damager not detected ({handle.item.name})");
                 }
             }
         }
@@ -110,7 +112,7 @@ namespace Indicator
                     {
                         go.transform.SetParent(item.physicBody.rigidBody.gameObject.transform, false);
                         go.transform.localScale = Vector3.one * IndicatorManager.OptLength;
-                        go.transform.localPosition = new Vector3(IndicatorManager.OptX, IndicatorManager.OptLength + IndicatorManager.OptY, IndicatorManager.OptZ);
+                        go.transform.localPosition = IndicatorManager.OptOffset;
                     }
                     ParticleSystem.MainModule main = go.GetComponent<ParticleSystem>().main;
                     main.startColor = gcRed;
@@ -139,7 +141,12 @@ namespace Indicator
         }
         private void ChangeColorOnLoop(EdgeDatum data)
         {
-            if (data.damager.CheckAngles(data.body.velocity))
+            if (IndicatorManager.OptAngle == 0 && data.damager.CheckAngles(data.body.velocity))
+            {
+                ParticleSystem.MainModule main = data.effect.main;
+                main.startColor = gcGreen;
+            }
+            else if(IndicatorManager.OptAngle != 0 && data.damager.CheckAnglesFixed(data.body.velocity, IndicatorManager.OptAngle))
             {
                 ParticleSystem.MainModule main = data.effect.main;
                 main.startColor = gcGreen;
@@ -163,6 +170,21 @@ namespace Indicator
             {
                 left?.Stop();
                 right?.Stop();
+            }
+        }
+        public void ChangeOffset(Vector3? offset = null, float? length = null)
+        {
+            Transform left = this.edgeDataLeft?.effect?.gameObject?.transform;
+            Transform right = this.edgeDataRight?.effect?.gameObject?.transform;
+            if (left != null)
+            {
+                if (offset != null) left.localPosition = (Vector3)offset;
+                if (length != null) left.localScale = Vector3.one * (length ?? 1f);
+            }
+            if(right != null)
+            {
+                if(offset != null) right.localPosition = (Vector3)offset;
+                if (length != null) right.localScale = Vector3.one * (length ?? 1f) ;
             }
         }
         public override ManagedLoops EnabledManagedLoops => ManagedLoops.Update;
