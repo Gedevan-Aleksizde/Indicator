@@ -11,18 +11,43 @@
       "texts": [
         {
           "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "category_general",
+          "text": "General"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "category_advanced",
+          "text": "Advanced"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
           "id": "activation",
           "text": "Activation"
         },
         {
           "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "angle",
+          "text": "Angle"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "angle_desc",
+          "text": "Spcify the difference threshold between the incidence angle and the swinging angle. 'Auto' is based on the weapon-specific parameters."
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "value_auto",
+          "text": "Auto"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
           "id": "activation_desc",
-          "text": "Toggle the mod state ON/OFF instanctly"
+          "text": "Toggle the mod ON/OFF instantly"
         },
         {
           "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
           "id": "apply_any",
-          "text": "Apply Anyone"
+          "text": "Apply to Anyone"
         },
         {
           "$type": "ThunderRoad.TextData+TextID, ThunderRoad",

@@ -11,6 +11,16 @@
       "texts": [
         {
           "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "category_general",
+          "text": "全般"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "category_advanced",
+          "text": "高度な設定"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
           "id": "activation",
           "text": "起動"
         },
@@ -18,6 +28,21 @@
           "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
           "id": "activation_desc",
           "text": "Modの有効無効を即座に切り替えます"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "angle",
+          "text": "角度"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "angle_desc",
+          "text": "入射角と振る角度の誤差のしきい値を指定します。「自動」の場合は武器ごとの内部パラメータによって決定されます。"
+        },
+        {
+          "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
+          "id": "value_auto",
+          "text": "自動"
         },
         {
           "$type": "ThunderRoad.TextData+TextID, ThunderRoad",
