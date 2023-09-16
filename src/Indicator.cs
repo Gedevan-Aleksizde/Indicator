@@ -1,5 +1,4 @@
-﻿using Mono.Math.Prime;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using ThunderRoad;
 using UnityEngine;
@@ -128,7 +127,12 @@ namespace Indicator
                         {
                             effect = go.GetComponent<ParticleSystem>()
                         };
-                }
+                    }
+                    if (!IndicatorManager.OptActivation)
+                    {
+                        this.edgeDataLeft?.effect?.Stop();
+                        this.edgeDataRight?.effect?.Stop();
+                    }
                 },
                 "LoadTrail"
                 );
@@ -144,6 +148,21 @@ namespace Indicator
             {
                 ParticleSystem.MainModule main = data.effect.main;
                 main.startColor = gcRed;
+            }
+        }
+        public void ToggleEffect(bool state)
+        {
+            ParticleSystem left = this.edgeDataLeft?.effect;
+            ParticleSystem right = this.edgeDataRight?.effect;
+            if (state)
+            {
+                left?.Play();
+                right?.Play();
+            }
+            else
+            {
+                left?.Stop();
+                right?.Stop();
             }
         }
         public override ManagedLoops EnabledManagedLoops => ManagedLoops.Update;
