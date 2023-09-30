@@ -2,7 +2,7 @@
   "Name": "Edge Incidence Angle Indicator (U12)",
   "Description": "Check if the edge angle is correct",
   "Author": "SKatagiri",
-  "ModVersion": "1.1.0",
+  "ModVersion": "1.1.1",
   "GameVersion": "0.12.0.0",
   "Thumbnail": ""
 }

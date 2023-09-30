@@ -58,25 +58,28 @@ namespace Indicator
         }
         private void GetItemDamager_OnGrabEvent(Side side, Handle handle, float axisPosition, HandlePose orientation, EventTime eventTime)
         {
-            if(eventTime == EventTime.OnEnd)
+            if (handle.item) // in case the player's creature is killed
             {
-                //TODO: more efficient impl.
-                // IEnumerable<Damager> slashDamagers =  handle.item.mainCollisionHandler.damagers.Where(damager => damager is { penetrationDepth: > 0, penetrationLength: 0 });
-                IEnumerable<Damager> slashDamagers = handle.item.mainCollisionHandler.damagers
-                    .Where<Damager>(d => d.penetrationDepth != 0 /*&& d.colliderGroup.colliders
+                if (eventTime == EventTime.OnEnd)
+                {
+                    //TODO: more efficient impl.
+                    // IEnumerable<Damager> slashDamagers =  handle.item.mainCollisionHandler.damagers.Where(damager => damager is { penetrationDepth: > 0, penetrationLength: 0 });
+                    IEnumerable<Damager> slashDamagers = handle.item.mainCollisionHandler.damagers
+                        .Where<Damager>(d => d.penetrationDepth != 0 /*&& d.colliderGroup.colliders
                         .Where<Collider>(c => c.sharedMaterial.name == "Blade").Count() > 0*/
-                );
-                if (slashDamagers.Count() > 0)
-                {
-                    Damager slashDamager = slashDamagers.OrderBy(d => d.penetrationLength == 0 ).First();
-                    if(IndicatorManager.OptVerboseLog) Debug.Log($"slash damager detected in {handle.item.data.displayName} ({slashDamager.name}) (len={slashDamagers.Count()})");
-                    this.AddTrailRenderer(handle.item, slashDamager, side);
+                    );
+                    if (slashDamagers.Count() > 0)
+                    {
+                        Damager slashDamager = slashDamagers.OrderBy(d => d.penetrationLength == 0).First();
+                        if (IndicatorManager.OptVerboseLog) Debug.Log($"slash damager detected in {handle.item.data.displayName} ({slashDamager.name}) (len={slashDamagers.Count()})");
+                        this.AddTrailRenderer(handle.item, slashDamager, side);
+                    }
+                    else
+                    {
+                        if (IndicatorManager.OptVerboseLog) Debug.Log($"slash damager not detected ({handle.item.name})");
+                    }
                 }
-                else
-                {
-                    if(IndicatorManager.OptVerboseLog) Debug.Log($"slash damager not detected ({handle.item.name})");
-                }
-            }
+            }   
         }
         private void RemoveEffect_OnUnGrabEvent(Side side, Handle handle, bool throwing, EventTime eventTime)
         {
