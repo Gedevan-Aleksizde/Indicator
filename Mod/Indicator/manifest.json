@@ -1,8 +1,8 @@
 {
-  "Name": "Edge Incidence Angle Indicator (U12)",
-  "Description": "Check if the edge angle is correct",
+  "Name": "Edge Incidence Angle Indicator",
+  "Description": "Check your sword's incidence angle",
   "Author": "SKatagiri",
-  "ModVersion": "1.1.1",
-  "GameVersion": "0.12.0.0",
-  "Thumbnail": ""
+  "ModVersion": "2.0.0",
+  "GameVersion": "1.0.0.0",
+  "Thumbnail": "https://staticdelivery.nexusmods.com/mods/2673/images/9160/9160-1694802033-1600707965.jpeg"
 }
